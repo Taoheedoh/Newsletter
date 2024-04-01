@@ -166,6 +166,11 @@ a {
     border: hsl(4, 100%, 67%);
 }
 
+.align{
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width: 768px){
     *{
         margin: 0;

@@ -1,20 +1,19 @@
-document.getElementById('email').addEventListener('submit',
-    function (event){
-        event.preventDefault();
-        var emailInput = document.getElementById('email')
-        var errorMessage = document.getElementById('errorMessage')
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+const errorBox = document.getElementById('errorMessage')
+const email = document.getElementById('email')
 
-        if (! validateEmail(emailInput.value)){
-            errorMessage.textContent = 'Valid email required'
-            return
+
+function validateEmail() {
+    try {
+        if (emailRegex.test(email.value)){
+            location.href = 'success.html'
+        }else{
+            errorBox.innerHTML = 'Valid email required'
+            errorBox.style.color = 'red'
+            email.style.border = 'solid red'
+            email.value.style.color = 'red'
         }
-
-
-
+    } catch (error) {
+        console.log('Valid email required', error)
     }
-)
-
-function validateEmail (email) {
-    var re = /\S+@\S+\.\S+/
-    return re.test(email)
 }
