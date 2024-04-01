@@ -17,3 +17,7 @@ function validateEmail() {
         console.log('Valid email required', error)
     }
 }
+
+function dismiss(){
+    location.href = 'index.html'
+}
